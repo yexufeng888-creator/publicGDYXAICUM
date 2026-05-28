@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Campus Intelligence · 六月，智能跃迁</title>
+<style>
+  body{margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif;color:#fff;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:677px;margin:0 auto;background:#000;}
+  /* ===== Hero ===== */
+  .hero{position:relative;padding:80px 28px 70px;text-align:center;
+    background:radial-gradient(ellipse at top,#1a0b3d 0%,#0a0420 45%,#000 100%);
+    overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-40%;left:50%;transform:translateX(-50%);
+    width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(120,80,255,.55) 0%,rgba(60,30,180,.25) 40%,transparent 70%);
+    filter:blur(40px);}
+  .logo-box{position:relative;display:inline-block;padding:18px;border-radius:32px;
+    background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.04));
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 12px 40px rgba(80,40,200,.45),inset 0 1px 0 rgba(255,255,255,.25);}
+  .logo-box img{width:96px;height:96px;display:block;border-radius:20px;}
+  .eyebrow{margin-top:28px;font-size:13px;letter-spacing:6px;color:#a78bfa;text-transform:uppercase;}
+  .hero h1{margin:18px 0 0;font-size:46px;line-height:1.15;font-weight:700;
+    background:linear-gradient(180deg,#fff 0%,#c4b5fd 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-1px;}
+  .hero h1 .accent{display:block;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa,#f0abfc);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.sub{margin-top:22px;font-size:17px;line-height:1.7;color:rgba(255,255,255,.72);}
+  .date-pill{display:inline-block;margin-top:30px;padding:10px 22px;border-radius:999px;
+    background:rgba(255,255,255,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.18);font-size:14px;letter-spacing:2px;color:#e9d5ff;}
+
+  /* ===== Section base ===== */
+  .section{padding:70px 28px;position:relative;}
+  .tag{font-size:12px;letter-spacing:5px;color:#a78bfa;text-transform:uppercase;margin-bottom:14px;}
+  h2.title{font-size:36px;line-height:1.2;font-weight:700;margin:0 0 18px;letter-spacing:-.5px;
+    background:linear-gradient(180deg,#fff,#bfdbfe);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  h2.title .g{background:linear-gradient(90deg,#60a5fa,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .lead{font-size:16px;line-height:1.8;color:rgba(255,255,255,.72);margin:0 0 30px;}
+
+  /* ===== Glass card ===== */
+  .glass{position:relative;border-radius:28px;padding:32px 26px;margin:18px 0;
+    background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+    backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 20px 50px rgba(20,10,60,.5),inset 0 1px 0 rgba(255,255,255,.18);}
+  .glass.purple{background:linear-gradient(135deg,rgba(167,139,250,.22),rgba(96,165,250,.08));}
+  .glass.blue{background:linear-gradient(135deg,rgba(96,165,250,.22),rgba(167,139,250,.08));}
+  .glass.green{background:linear-gradient(135deg,rgba(74,222,128,.18),rgba(34,197,94,.06));}
+
+  .card-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .badge{display:inline-block;padding:6px 14px;border-radius:999px;font-size:12px;letter-spacing:1px;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa);color:#fff;}
+  .badge.android{background:linear-gradient(90deg,#34d399,#10b981);}
+  .badge.mp{background:linear-gradient(90deg,#06b6d4,#3b82f6);}
+  h3.card-title{margin:0;font-size:24px;font-weight:700;color:#fff;letter-spacing:-.3px;}
+  .glass p{font-size:15px;line-height:1.85;color:rgba(255,255,255,.78);margin:8px 0;}
+
+  .feat-list{list-style:none;padding:0;margin:14px 0 0;}
+  .feat-list li{position:relative;padding:10px 0 10px 28px;font-size:15px;line-height:1.7;color:rgba(255,255,255,.82);border-bottom:1px solid rgba(255,255,255,.06);}
+  .feat-list li:last-child{border-bottom:none;}
+  .feat-list li::before{content:"";position:absolute;left:0;top:18px;width:14px;height:14px;border-radius:50%;
+    background:linear-gradient(135deg,#60a5fa,#c084fc);box-shadow:0 0 12px rgba(167,139,250,.7);}
+
+  /* ===== Stats ===== */
+  .stats{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;}
+  .stat{flex:1;min-width:140px;padding:22px 16px;text-align:center;border-radius:20px;
+    background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.12);}
+  .stat .num{font-size:32px;font-weight:700;background:linear-gradient(90deg,#60a5fa,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .lab{font-size:12px;color:rgba(255,255,255,.6);margin-top:6px;letter-spacing:1px;}
+
+  /* ===== Divider ===== */
+  .divider{text-align:center;padding:50px 0 20px;}
+  .divider .line{display:inline-block;width:60px;height:1px;
+    background:linear-gradient(90deg,transparent,#a78bfa,transparent);}
+
+  /* ===== Mockup frame ===== */
+  .device{margin:30px auto;text-align:center;}
+  .phone{display:inline-block;padding:8px;border-radius:36px;
+    background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.04));
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 30px 70px rgba(80,40,200,.5);}
+  .phone-screen{width:240px;height:420px;border-radius:30px;
+    background:linear-gradient(160deg,#1e1b4b 0%,#312e81 50%,#1e3a8a 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:20px;}
+  .phone-screen .mini-logo{width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:18px;border:1px solid rgba(255,255,255,.2);}
+  .phone-screen .ttl{font-size:16px;font-weight:600;margin-bottom:6px;}
+  .phone-screen .desc{font-size:11px;color:rgba(255,255,255,.65);text-align:center;line-height:1.5;}
+
+  /* ===== Footer CTA ===== */
+  .footer{padding:80px 28px 100px;text-align:center;
+    background:radial-gradient(ellipse at bottom,#1a0b3d 0%,#000 70%);}
+  .footer h2{font-size:34px;font-weight:700;margin:0 0 16px;
+    background:linear-gradient(90deg,#60a5fa,#a78bfa,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .footer p{font-size:15px;line-height:1.8;color:rgba(255,255,255,.7);margin:0 auto 30px;max-width:480px;}
+  .cta{display:inline-block;padding:16px 40px;border-radius:999px;
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6);color:#fff;font-size:15px;letter-spacing:2px;
+    box-shadow:0 12px 35px rgba(139,92,246,.5);text-decoration:none;}
+  .meta{margin-top:50px;font-size:12px;color:rgba(255,255,255,.4);letter-spacing:2px;}
+  .meta strong{color:rgba(255,255,255,.7);}
+
+  /* ===== 3D & Scroll Animation Styles ===== */
+  .reveal-3d,.reveal-tilt-left,.reveal-tilt-right,.reveal-zoom,.reveal-flip{
+    opacity:0;transform:translateY(50px);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1);}
+  .reveal-3d.in-view{opacity:1;transform:translateY(0);}
+  .reveal-tilt-left{transform:translateY(50px) rotateY(-12deg);transform-origin:right center;}
+  .reveal-tilt-left.in-view{transform:translateY(0) rotateY(0);}
+  .reveal-tilt-right{transform:translateY(50px) rotateY(12deg);transform-origin:left center;}
+  .reveal-tilt-right.in-view{transform:translateY(0) rotateY(0);}
+  .reveal-zoom{transform:scale(0.85);opacity:0;}
+  .reveal-zoom.in-view{transform:scale(1);opacity:1;}
+  .reveal-flip{transform:rotateX(-15deg) translateY(30px);opacity:0;transform-origin:center top;}
+  .reveal-flip.in-view{transform:rotateX(0) translateY(0);opacity:1;}
+
+  /* Stagger children animation */
+  .stagger-children>*{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+  .stagger-children.in-view>*:nth-child(1){transition-delay:.05s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(2){transition-delay:.1s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(3){transition-delay:.15s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(4){transition-delay:.2s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(5){transition-delay:.25s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(6){transition-delay:.3s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(7){transition-delay:.35s;opacity:1;transform:translateY(0);}
+  .stagger-children.in-view>*:nth-child(8){transition-delay:.4s;opacity:1;transform:translateY(0);}
+
+  /* 3D Card hover effects */
+  .card-3d,.tilt-3d{transform-style:preserve-3d;transition:transform .6s cubic-bezier(.16,1,.3,1);}
+  .tilt-3d{transform:perspective(1200px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(var(--tilt-z,0px));}
+  .tilt-3d:hover{transform:perspective(1200px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(var(--tilt-z,0px)) scale(1.02);}
+
+  /* Cursor glow effect */
+  .glow-cursor{position:relative;overflow:hidden;}
+  .glow-cursor::before{content:"";position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(167,139,250,.25),transparent 70%);
+    top:var(--my,50%);left:var(--mx,50%);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;pointer-events:none;}
+  .glow-cursor:hover::before{opacity:1;}
+
+  /* Scroll-driven parallax */
+  .parallax-3d{transform:translateY(var(--parallax-y,0));transition:transform .1s linear;}
+  .scroll-scale{transform:scale(var(--scroll-scale,1));opacity:var(--scroll-opacity,1);transition:transform .2s linear,opacity .2s linear;}
+
+  /* Glass card enhanced 3D */
+  .glass{transform:translateZ(0);will-change:transform;}
+  .glass:hover{transform:translateZ(10px) scale(1.01);transition:transform .5s cubic-bezier(.16,1,.3,1);}
+
+  /* Logo box 3D float animation */
+  @keyframes float3d{0%,100%{transform:translateY(0) rotateY(0);}50%{transform:translateY(-12px) rotateY(5deg);}}
+  .logo-box{animation:float3d 6s ease-in-out infinite;transform-style:preserve-3d;}
+
+  /* Hero gradient animation */
+  @keyframes gradientShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+  .hero{background-size:200% 200%;animation:gradientShift 15s ease infinite;}
+
+  /* Accent text shimmer */
+  @keyframes shimmer{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
+  .hero h1 .accent{background-size:200% auto;animation:shimmer 8s linear infinite;}
+
+  /* Stats number pulse */
+  .stat .num{transform-style:preserve-3d;transition:transform .3s cubic-bezier(.16,1,.3,1);}
+  .stat:hover .num{transform:scale(1.15) translateZ(20px);}
+
+  /* Phone mockup 3D */
+  .phone{transform-style:preserve-3d;transition:transform .6s cubic-bezier(.16,1,.3,1);}
+  .phone:hover{transform:perspective(1000px) rotateY(8deg) rotateX(-5deg) scale(1.05);}
+
+  /* CTA button 3D press */
+  .cta{transform:translateZ(0);transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s;}
+  .cta:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 20px 50px rgba(139,92,246,.7);}
+  .cta:active{transform:translateY(-1px) scale(1.02);}
+
+  /* Smooth scroll behavior */
+  html{scroll-behavior:smooth;}
+  *{-webkit-tap-highlight-color:transparent;}
+</style>
+</head>
+<body>
+<section class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="logo-box">
+      <img src="LOGO_PLACEHOLDER" alt="Campus Intelligence">
+    </div>
+    <div class="eyebrow">CAMPUS INTELLIGENCE</div>
+    <h1>智能<span class="accent">不止于网页</span></h1>
+    <p class="sub">六月，Campus Intelligence 将正式登陆<br>微信小程序 与 Android 移动端<br>让校园智能，真正握在你手中。</p>
+    <div class="date-pill">2026 · 6 月 · 即将上线</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="section">
+    <div class="tag">EVOLUTION · 进化</div>
+    <h2 class="title">从一张网页，<br>到<span class="g">一整个口袋校园</span></h2>
+    <p class="lead">过去的几个月里，无数艺信学子在 Campus Intelligence 网页端写下论文、调试代码、规划学涯。我们听到了一个共同的声音——<strong style="color:#fff;">让它，跟我一起走出宿舍。</strong></p>
+    <p class="lead">现在，这一刻即将到来。一次同步两端，一次思维跃迁。</p>
+  </div>
+
+  <div class="divider"><span class="line"></span></div>
+
+  <!-- Mini Program -->
+  <div class="section">
+    <div class="tag">WECHAT MINI · 微信小程序</div>
+    <h2 class="title">轻轻一扫，<br><span class="g">智能就在身边</span></h2>
+
+    <div class="glass blue">
+      <div class="card-head">
+        <span class="badge mp">小程序版</span>
+        <h3 class="card-title">即开即用，无需下载</h3>
+      </div>
+      <p>不必跳转浏览器，不必记住网址。在微信里，<strong style="color:#fff;">「Campus Intelligence」</strong>触手可及。课间十分钟、食堂排队时、地铁通勤路上——零负担调用 AI，灵感不再被场景束缚。</p>
+      <ul class="feat-list">
+        <li>微信生态深度集成，一键登录免注册</li>
+        <li>智能写作 / 翻译 / 代码助手 全功能同步</li>
+        <li>对话历史云端漫游，网页端无缝续写</li>
+        <li>校园 Genmoji 一键生成，分享到聊天</li>
+      </ul>
+    </div>
+
+    <div class="device">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="mini-logo">✦</div>
+          <div class="ttl">Campus Intelligence</div>
+          <div class="desc">微信小程序<br>预计 2025.06 上线</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="line"></span></div>
+
+  <!-- Android App -->
+  <div class="section">
+    <div class="tag">ANDROID · 原生移动端</div>
+    <h2 class="title">完整体验，<br><span class="g">原生般流畅</span></h2>
+
+    <div class="glass green">
+      <div class="card-head">
+        <span class="badge android">Android 版</span>
+        <h3 class="card-title">为长时段学习而生</h3>
+      </div>
+      <p>当小程序还不够尽兴，原生 App 接管每一次深度对话。基于 <strong style="color:#fff;">Material You</strong> 设计语言重塑界面，配合 Campus Intelligence 标志性的<strong style="color:#fff;">深蓝紫液态玻璃</strong>视觉，移动端的每一帧都与桌面端同源同构。</p>
+      <ul class="feat-list">
+        <li>Material You 动态取色 × 液态玻璃毛玻璃质感</li>
+        <li>本地化离线缓存，断网也能查阅历史对话</li>
+        <li>悬浮窗模式：写论文时随叫随到</li>
+        <li>桌面小组件：每日学习提醒、AI 快捷入口</li>
+        <li>支持文件 / 图片 / 语音多模态输入</li>
+      </ul>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">23%↓</div><div class="lab">认知负荷</div></div>
+      <div class="stat"><div class="num">31%↑</div><div class="lab">操作效率</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lab">三端同步</div></div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="line"></span></div>
+
+  <!-- Cross Device -->
+  <div class="section">
+    <div class="tag">SEAMLESS · 无界</div>
+    <h2 class="title">一个账号，<br><span class="g">三端同行</span></h2>
+    <p class="lead">网页端打开的那篇论文初稿，地铁上用小程序补一段灵感，回到宿舍打开 Android App 继续润色——Campus Intelligence 的每一次对话，都流淌在你的整个校园生活中。</p>
+
+    <div class="glass purple">
+      <h3 class="card-title" style="margin-bottom:10px;">为什么选择全端布局？</h3>
+      <p>因为校园生活本就是流动的。教室、图书馆、食堂、操场——智能不应该被一块屏幕囚禁。我们想做的，是<strong style="color:#fff;">让 AI 像呼吸一样自然地存在</strong>，在你需要的任何场景，瞬间响应。</p>
+    </div>
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="footer">
+    <div class="tag" style="margin-bottom:20px;">JUNE 2025</div>
+    <h2>六月见，<br>口袋里的智能。</h2>
+    <p>关注本公众号，第一时间获取上线通知、内测资格与限定 Genmoji 礼包。我们已经准备好了，你呢？</p>
+    <a class="cta" href="https://yexufeng888-creator.github.io/gdyxCAMai/">访问网页版 →</a>
+    <div class="meta">
+      <strong>Campus Intelligence</strong><br>
+      Powered by ChatGPT · 专为大连工业大学艺术与信息工程学院打造<br>
+      AI for the rest of your campus life.
+      by@2026 Campus intelligence团队解释所有权
+    </div>
+  </div>
+
+</section>
+<script>
+(function() {
+  'use strict';
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* ============ Enhanced Apple-style smooth scroll ============ */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ============ Enhanced Apple-style smooth scroll ============ */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ============ Auto-tag elements for reveal animations ============ */
+  function autoTag() {
+    // Tag major section blocks with alternating effects
+    var sectionBlocks = document.querySelectorAll('.section');
+    sectionBlocks.forEach(function(s, i) {
+      if (!s.dataset.r3d) {
+        s.classList.add(i % 3 === 0 ? 'reveal-3d' : (i % 3 === 1 ? 'reveal-flip' : 'reveal-zoom'));
+        s.dataset.r3d = '1';
+      }
+    });
+
+    // Tag headlines/titles with dramatic reveal
+    document.querySelectorAll('h1, h2').forEach(function(h) {
+      if (!h.dataset.r3d) {
+        h.classList.add('reveal-3d');
+        h.dataset.r3d = '1';
+      }
+    });
+
+    document.querySelectorAll('h3').forEach(function(h) {
+      if (!h.dataset.r3d) {
+        h.classList.add('reveal-flip');
+        h.dataset.r3d = '1';
+      }
+    });
+
+    // Tag hero with zoom effect
+    document.querySelectorAll('.hero').forEach(function(hero) {
+      if (!hero.dataset.r3d) {
+        hero.classList.add('reveal-zoom');
+        hero.dataset.r3d = '1';
+      }
+    });
+
+    // Tag glass cards with alternating 3D tilts
+    var glassCards = document.querySelectorAll('.glass');
+    glassCards.forEach(function(c, i) {
+      if (!c.dataset.r3d) {
+        c.classList.add('card-3d', 'tilt-3d', 'glow-cursor');
+        c.classList.add(i % 2 === 0 ? 'reveal-tilt-left' : 'reveal-tilt-right');
+        c.dataset.r3d = '1';
+      }
+    });
+
+    // Tag stats grid for stagger
+    document.querySelectorAll('.stats').forEach(function(s) {
+      if (!s.dataset.r3d) {
+        s.classList.add('stagger-children');
+        s.dataset.r3d = '1';
+      }
+    });
+
+    // Tag feature lists for stagger
+    document.querySelectorAll('.feat-list').forEach(function(ul) {
+      if (!ul.dataset.r3d) {
+        ul.classList.add('stagger-children');
+        ul.dataset.r3d = '1';
+      }
+    });
+
+    // Tag paragraphs with subtle reveal
+    document.querySelectorAll('.lead, .glass p').forEach(function(p) {
+      if (!p.dataset.r3d) {
+        p.classList.add('reveal-3d');
+        p.dataset.r3d = '1';
+      }
+    });
+
+    // Tag device mockups
+    document.querySelectorAll('.device, .phone').forEach(function(d) {
+      if (!d.dataset.r3d) {
+        d.classList.add('reveal-zoom');
+        d.dataset.r3d = '1';
+      }
+    });
+
+    // Tag badges and pills
+    document.querySelectorAll('.badge, .date-pill, .tag').forEach(function(b) {
+      if (!b.dataset.r3d) {
+        b.classList.add('reveal-3d');
+        b.dataset.r3d = '1';
+      }
+    });
+  }
+
+  /* ============ IntersectionObserver for reveals ============ */
+  function setupReveal() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -10% 0px' });
+
+    document.querySelectorAll('.reveal-3d, .reveal-tilt-left, .reveal-tilt-right, .reveal-zoom, .reveal-flip, .stagger-children').forEach(function(el) {
+      io.observe(el);
+    });
+  }
+
+  /* ============ Mouse-tracked 3D tilt (Apple-style) ============ */
+  function setupTilt() {
+    document.querySelectorAll('.tilt-3d').forEach(function(el) {
+      var raf = null;
+      el.addEventListener('mousemove', function(e) {
+        if (raf) cancelAnimationFrame(raf);
+        var rect = el.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        var ry = (x - 0.5) * 18;   // rotateY - increased for more dramatic effect
+        var rx = (0.5 - y) * 12;   // rotateX
+        raf = requestAnimationFrame(function() {
+          el.style.setProperty('--tilt-x', rx + 'deg');
+          el.style.setProperty('--tilt-y', ry + 'deg');
+          el.style.setProperty('--tilt-z', '25px');
+        });
+      });
+      el.addEventListener('mouseleave', function() {
+        el.style.setProperty('--tilt-x', '0deg');
+        el.style.setProperty('--tilt-y', '0deg');
+        el.style.setProperty('--tilt-z', '0px');
+      });
+    });
+  }
+
+  /* ============ Cursor glow tracking ============ */
+  function setupGlow() {
+    document.querySelectorAll('.glow-cursor').forEach(function(el) {
+      el.addEventListener('mousemove', function(e) {
+        var rect = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+      });
+    });
+  }
+
+  /* ============ Scroll-driven parallax & scaling (Apple-style) ============ */
+  function setupScrollFx() {
+    // Hero scale-on-scroll
+    var hero = document.querySelector('.hero');
+    if (hero) hero.classList.add('scroll-scale');
+
+    // Alternating parallax for sections
+    document.querySelectorAll('.section').forEach(function(s, i) {
+      if (i % 2 === 1) s.classList.add('parallax-3d');
+    });
+
+    // Glass cards get subtle parallax
+    document.querySelectorAll('.glass').forEach(function(g, i) {
+      if (i % 2 === 0) g.classList.add('parallax-3d');
+    });
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var vh = window.innerHeight;
+
+        // Hero scale and fade
+        if (hero) {
+          var rect = hero.getBoundingClientRect();
+          var progress = Math.min(Math.max(-rect.top / Math.max(rect.height, 1), 0), 1);
+          var scale = 1 - progress * 0.15;
+          var opacity = 1 - progress * 0.5;
+          hero.style.setProperty('--scroll-scale', scale.toFixed(3));
+          hero.style.setProperty('--scroll-opacity', opacity.toFixed(3));
+        }
+
+        // Parallax elements
+        document.querySelectorAll('.parallax-3d').forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          var center = rect.top + rect.height / 2;
+          var delta = (vh / 2 - center) * 0.08;
+          el.style.setProperty('--parallax-y', delta.toFixed(1) + 'px');
+        });
+
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ============ Number counter animation (Apple-style) ============ */
+  function setupCounters() {
+    // Target stat numbers specifically
+    var statNums = document.querySelectorAll('.stat .num');
+    statNums.forEach(function(el) {
+      var raw = el.textContent.trim();
+      var match = raw.match(/^([+-]?\d+)(.*)$/);
+      if (!match) return;
+      var target = parseInt(match[1], 10);
+      var suffix = match[2] || '';
+      if (!isFinite(target)) return;
+      el.textContent = '0' + suffix;
+      var started = false;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting && !started) {
+            started = true;
+            var start = performance.now();
+            var dur = 2000;
+            function tick(now) {
+              var t = Math.min((now - start) / dur, 1);
+              // Apple-style easing: ease-out-expo
+              var eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+              var v = Math.floor(target * eased);
+              el.textContent = v + suffix;
+              if (t < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      io.observe(el);
+    });
+  }
+
+  /* ============ Magnetic button effect ============ */
+  function setupMagnetic() {
+    var cta = document.querySelector('.cta');
+    if (!cta) return;
+    cta.addEventListener('mousemove', function(e) {
+      var rect = cta.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      cta.style.transform = 'translate(' + (x * 0.2) + 'px, ' + (y * 0.2 - 3) + 'px) scale(1.05)';
+    });
+    cta.addEventListener('mouseleave', function() {
+      cta.style.transform = '';
+    });
+  }
+
+  /* ============ Init ============ */
+  function init() {
+    autoTag();
+    setupReveal();
+    setupTilt();
+    setupGlow();
+    setupScrollFx();
+    setupCounters();
+    setupMagnetic();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
